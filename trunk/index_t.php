@@ -12,16 +12,16 @@
 
 </style>
 <script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0b1/build/yui/yui-min.js"></script>
-<script type="text/javascript" src="js/y-sns-hack.js"></script>
+<script type="text/javascript" src="cubee/base/t-cubee.js"></script>
 <script type="text/javascript">
 //T.DP.base & T.DP.framework
 TBloader.addmojo({
 	't-base':{
-		fullpath:'http://10.32.22.154/tb_yui3hack/js/t-base.js',
+		fullpath:'http://10.32.22.154/tb_yui3hack/cubee/base/t-base.js',
 		requires:['node','event','oop']
 	},
 	't-framework':{
-		fullpath:'http://10.32.22.154/tb_yui3hack/js/t-framework.js',
+		fullpath:'http://10.32.22.154/tb_yui3hack/cubee/tbwidget/t-framework.js',
 		requires:['t-base']
 	}
 });
@@ -89,7 +89,7 @@ TBloader.addmojo({
 //项目
 var TBproject = new Cubee().addmojo({
 	projectname:{
-		fullpath:'http://10.32.22.154/tb_yui3hack/js/t-project.js',
+		fullpath:'http://10.32.22.154/tb_yui3hack/project/js/t-project.js',
 		requires:['node','event','msg','yahoo-loader','slider','base']
 	}
 }).require('*'/*,'projectname'*/).onReady(function(){
@@ -111,7 +111,7 @@ var TBproject = new Cubee().addmojo({
 //页面框架
 TBloader.addmojo({
 	't-framework-hack':{
-		fullpath:'http://10.32.22.154/tb_yui3hack/js/t-framework-hack.js',
+		fullpath:'http://10.32.22.154/tb_yui3hack/project/js/t-framework-hack.js',
 		requires:['node','event','t-framework']
 	}
 });
