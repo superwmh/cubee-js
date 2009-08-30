@@ -19,10 +19,10 @@
 <div id="doc">
 	<div id="hd">
 		<ul>
-			<li>菜单1？</li>
-			<li>菜单2？</li>
-			<li>菜单3？</li>
-			<li>菜单4？</li>
+			<li>菜单1</li>
+			<li>菜单2</li>
+			<li>菜单3</li>
+			<li>菜单4</li>
 		</ul>
 	</div>
 	<div id="bd">
@@ -49,7 +49,7 @@
 //项目
 var TBproject = new Cubee().addmojo({
 	projectname:{
-		fullpath:'http://10.32.22.154/tb_yui3hack/project/js/t-project.js',
+		fullpath:hostname+'tb_yui3hack/project/js/t-project.js',
 		requires:['node','event','msg','yahoo-loader','slider','base']
 	}
 }).require('*'/*,'projectname'*/).onReady(function(){
@@ -71,7 +71,7 @@ var TBproject = new Cubee().addmojo({
 //页面框架
 TBloader.addmojo({
 	't-framework-hack':{
-		fullpath:'http://10.32.22.154/tb_yui3hack/project/js/t-framework-hack.js',
+		fullpath:hostname+'tb_yui3hack/project/js/t-framework-hack.js',
 		requires:['node','event','t-framework']
 	}
 });
