@@ -1,0 +1,31 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh">
+<head>
+<title> test </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-cubee-config.js"></script>
+</head>
+<body>
+
+
+<!--html code here-->
+
+<h3>只使用yui3的写法</h3>
+页面使用yui.use，模块使用yui.add
+
+
+<script type="text/javascript">
+
+//普通的YUI3使用
+var modules = {
+	jayli :{//页面逻辑，跟随页面
+		fullpath:'project/js/t-jayindex.js'
+	}
+};
+YUI({modules:modules}).use('jayli', function(Y){
+	Y.JAY.init();//页面开始执行
+});
+
+</script>
+</body>
+</html>

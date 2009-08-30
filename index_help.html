@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh">
+<head>
+<title> test </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-cubee-config.js"></script>
+</head>
+
+<body class="yui-skin-sam">
+<div id="doc">
+	<div id="bd">
+		<h1>why cubee?</h1>
+		<h2>yui3是底层框架的构造，并无对网站框架的层次的抽象，在团队开发中，不能完全避免框架级别的功能模块之间的强耦合</h2>
+		<p></p>
+		<h2>在多人开发的项目中，通常在一个页面中使用多个YUI.ues，Y.use的滥用会大大降低页面性能，且多个Y.ues之间并无依赖关系，而实际项目中，这种功能依赖关系是非常常见的。</h2>
+		<p></p>
+		<h2>yui3的YUI全局对象有一些bug（比如namespace等），需要对其进行再封装以规避bug</h2>
+		<p></p>
+		<h1>how does cubee hack yui3?</h1>
+		<h2>对yui3的潜封装，保证每个页面只有一个Y.ues，避免无用的重复的http请求</h2>
+		<p></p>
+		<h2>对yui3的简单hack，以适合多数人写代码的习惯</h2>
+		<p>并不是所有人都熟悉yui3的面向对象机制和习惯其编码风格,但仍然推荐使用yui3的面向对象和向其编码风格靠拢</p>
+		<h2>在taobao使用Y作为根对象？</h2>
+		<p></p>
+		<h2>使用根对象T代替yui3的严谨的闭包</h2>
+		<p>并非所有工程师都理解闭包及其在yui3中闭包的优势,但仍然推荐使用yui3的严格闭包</p>
+
+
+	</div>
+</div>
+<body>
+
+</html>
