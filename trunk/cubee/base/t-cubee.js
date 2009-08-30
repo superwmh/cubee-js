@@ -16,7 +16,7 @@
  * hack for yui3
  */
 
-YUI.prototype.namespace = function() {
+YUI.namespace = YUI.prototype.namespace = function() {
 	var a=arguments, o=null, i, j, d;
 	for (i=0; i<a.length; i=i+1) {
 		d = ("" + a[i]).split(".");

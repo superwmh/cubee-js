@@ -26,35 +26,44 @@
 		</ul>
 	</div>
 	<div id="bd">
+		<h1>使用Cubee加载”框架“和”应用“,两个应用的js分别使用单体和yui.add闭包来实现</h1>
 		<!--{{-->
-		<h1>雅虎关系的弹出框</h1>
+		<h2>雅虎关系的弹出框</h2>
 		<div><a id="show-msg" href="javascript:void(0);">show msg</a></div>
 		<!--}}-->
 		<!--{{-->
-		<h1></h1>
-		<h1>yui2 loader 的calendar</h1>
+		<h2>使用yui2 loader异步加载yui2的calendar</h2>
 		<a id="load-calendar" href="javascript:void(0);">load calendar</a>
 		<div id="calendar_container"></div>
 		<!--}}-->
 		<!--{{-->
-		<h1>yui3 widget (slider)</h1>
+		<h2>yui3 widget (slider)</h2>
 		<p id="horiz_value">Value: 0</p>
 		<div class="horiz_slider"></div>
 		<!--}}-->
 		<!--{{-->
-		<h1>yui2弹出狂</h1>
+		<h2>yui2弹出狂</h2>
 		<!--}}-->
 <!--应用js-->
 <script type="text/javascript">
 //项目
 var TBproject = new Cubee().addmojo({
-	projectname:{
+	/*主程序使用Cubee，模块使用单体*/
+	't-project':{
 		fullpath:hostname+'tb_yui3hack/project/js/t-project.js',
 		requires:['node','event','msg','yahoo-loader','slider','base']
+	},
+	/*主程序使用Cubee，模块使用yui.add*/
+	't-project2':{
+		fullpath:hostname+'tb_yui3hack/project/js/t-project2.js'
 	}
-}).require('*'/*,'projectname'*/).onReady(function(){
+}).require('*'/*,'t-project','t-project2'*/).onReady(function(){
 	T.DP.projectname.init();
+	T.DP.projectname2.init();
 });
+
+//{{
+//}}
 </script>
 	
 	</div>

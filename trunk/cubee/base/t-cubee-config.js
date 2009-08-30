@@ -5,7 +5,7 @@ var TBloader = TBloader || new Cubee();
 TBloader.addmojo({
 	't-base':{
 		fullpath:hostname+'tb_yui3hack/cubee/base/t-base.js',
-		requires:['node','event','oop']
+		requires:[]
 	},
 	't-framework':{
 		fullpath:hostname+'tb_yui3hack/cubee/tbwidget/t-framework.js',

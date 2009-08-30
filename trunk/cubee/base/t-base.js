@@ -1,7 +1,9 @@
+YUI.namespace('T.base');
 
-T.add('t-base',function(T){
-	T.namespace('T.base');
-	T.base = {
+
+YUI.add('t-base',function(Y){
+
+	Y.mix(T.base , {
 
 	/**
 	*得到URL中的变量
@@ -246,7 +248,7 @@ T.add('t-base',function(T){
 	* @method YAHOO.CN.sns.base.clone
 	* @param o 被克隆的对象
 	*/
-	clone : T.clone,
+	clone :Y.clone,
 	/**
 	* @method YAHOO.CN.sns.base.wbtrim
 	* @param str ：原始字符串
@@ -412,6 +414,6 @@ T.add('t-base',function(T){
 	}
 
 
-	};//base end 
+	});//base end 
 
 });

@@ -1,7 +1,5 @@
 
-
-
-T.namespace("T.DP.projectname");
+YUI.namespace("T.DP.projectname");
 T.DP.projectname = function(){
 
 	var msginit = function(){
