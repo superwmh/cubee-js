@@ -92,11 +92,13 @@ var onDOMContentLoaded = function(onready,config){
 /*************************************************************************
 开始包装yui3
 **************************************************************************/
+//for test only
+hostname = 'http://192.168.1.102/';
 
 var Cubee = Cubee || function(){
 	this.init.apply(this, arguments);
 };
-Cubee._CONFIG = 'http://10.32.22.154/tb_yui3hack/cubee/cubee-config.js';//常用的全局定义
+Cubee._INFOPATH = hostname+'tb_yui3hack/cubee/cubee-info.js';//常用的全局定义
 Cubee._GM = {};//global Modules
 Cubee._GR = [];//global Requires
 Cubee._AGR = [];//all global Requires
@@ -107,7 +109,7 @@ Cubee.prototype = {
 		this.addedMojo = [];
 		this.requiredMojo = Cubee._GR;
 		this.allRequiredMojo = Cubee._AGR;
-		this.configpath = Cubee._CONFIG;
+		this.cubeeInfoPath = Cubee._INFOPATH;
 		this.start = new Function;
 	},
 	addmojo:function(modules){
@@ -116,8 +118,8 @@ Cubee.prototype = {
 			fd.modules[i] = modules[i];
 			fd.addedMojo.push(i);
 		}
-		fd.modules.config = fd.modules.Cubee || {//config
-			fullpath:fd.configpath,
+		fd.modules.info = fd.modules.Cubee || {//cubeeinfo
+			fullpath:fd.cubeeInfoPath,
 			requries:[]
 		};
 		fd.addedMojo = fd.distinct(fd.addedMojo);
@@ -144,7 +146,7 @@ Cubee.prototype = {
 			}
 		}
 		fd.requiredMojo = fd.distinct(fd.requiredMojo);
-		fd.modules.config.requires = fd.requiredMojo;
+		fd.modules.info.requires = fd.requiredMojo;
 		return fd;
 	},
 	/* 
@@ -188,7 +190,7 @@ var T = T || YUI();
 TBloader = new Cubee();
 
 onDOMContentLoaded(function(){
-	YUI({modules:TBloader.modules}).use('config',function(Y){
+	YUI({modules:TBloader.modules}).use('info',function(Y){
 		Y.mix(T,Y);
 		TBloader.start(this,arguments);
 	});
