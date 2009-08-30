@@ -12,9 +12,7 @@
 
 </style>
 <!--script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0b1/build/yui/yui-min.js"></script-->
-<script type="text/javascript" src="cubee/yui3/yui/yui-min.js"></script>
-<script type="text/javascript" src="cubee/base/t-cubee.js"></script>
-<script type="text/javascript" src="cubee/base/t-cubee-config.js"></script>
+<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-cubee-config.js"></script>
 </head>
 
 <body class="yui-skin-sam">
