@@ -4,11 +4,11 @@ var TBloader = TBloader || new Cubee();
 //T.DP.base & T.DP.framework
 TBloader.addmojo({
 	't-base':{
-		fullpath:hostname+'tb_yui3hack/cubee/base/t-base.js',
+		fullpath:hostname+'/cubee/base/t-base.js',
 		requires:[]
 	},
 	't-framework':{
-		fullpath:hostname+'tb_yui3hack/cubee/tbwidget/t-framework.js',
+		fullpath:hostname+'/cubee/tbwidget/t-framework.js',
 		requires:['t-base']
 	}
 });

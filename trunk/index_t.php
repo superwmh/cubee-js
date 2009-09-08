@@ -50,12 +50,12 @@
 var TBproject = new Cubee().addmojo({
 	/*主程序使用Cubee，模块使用单体*/
 	't-project':{
-		fullpath:hostname+'tb_yui3hack/project/js/t-project.js',
+		fullpath:hostname+'/project/js/t-project.js',
 		requires:['node','event','msg','yahoo-loader','slider','base']
 	},
 	/*主程序使用Cubee，模块使用yui.add*/
 	't-project2':{
-		fullpath:hostname+'tb_yui3hack/project/js/t-project2.js'
+		fullpath:hostname+'/project/js/t-project2.js'
 	}
 }).require('*'/*,'t-project','t-project2'*/).onReady(function(){
 	T.DP.projectname.init();
@@ -80,7 +80,7 @@ var TBproject = new Cubee().addmojo({
 //页面框架
 TBloader.addmojo({
 	't-framework-hack':{
-		fullpath:hostname+'tb_yui3hack/project/js/t-framework-hack.js',
+		fullpath:hostname+'/project/js/t-framework-hack.js',
 		requires:['node','event','t-framework']
 	}
 });

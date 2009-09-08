@@ -127,31 +127,6 @@ YUI.add('t-base',function(Y){
 		return o;
 	},
 	/**
-	*计算长度
-	*in_el : 输入框的对向
-	*out_el : 显示字数的对象
-	*length : 最大长度
-	*/
-	strlenShow : function(in_el, out_el, length){
-		var fd = this;
-		var valur = "";
-		if(!in_el) return;
-		var lenfun = function(){
-			if(out_el){
-				var len = (in_el.value.length > length) ? value.length : in_el.value.length;
-				out_el.innerHTML = len+"/"+length;
-			}
-			if(in_el.value.length < length){
-				value = in_el.value;
-			}else{
-				in_el.value = value;
-			}
-		}
-		fd.YE.on(in_el, "keydown", lenfun);
-		fd.YE.on(in_el, "keyup", lenfun);
-        fd.YE.on(in_el, "mouseup", lenfun);
-	},
-	/**
 	*计算字符长度
 `	*string : 需要求长度的字符串
 	*/

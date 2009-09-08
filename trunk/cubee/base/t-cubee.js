@@ -93,12 +93,12 @@ var onDOMContentLoaded = function(onready,config){
 开始包装yui3
 **************************************************************************/
 //for test only
-hostname = 'http://192.168.1.102/';
+hostname = 'http://taobao-wd.ns1.name/jayli/cubee/';
 
 var Cubee = Cubee || function(){
 	this.init.apply(this, arguments);
 };
-Cubee._INFOPATH = hostname+'tb_yui3hack/cubee/cubee-info.js';//常用的全局定义
+Cubee._INFOPATH = hostname+'/cubee/cubee-info.js';//常用的全局定义
 Cubee._GM = {};//global Modules
 Cubee._GR = [];//global Requires
 Cubee._AGR = [];//all global Requires
