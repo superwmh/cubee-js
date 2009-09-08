@@ -1,13 +1,9 @@
 var TBloader = TBloader || new Cubee();
 
-//T.DP.base & T.DP.framework
+//T.DP.framework
 TBloader.addmojo({
-	't-base':{
-		fullpath:cubeeBase+'base/t-base.js',
-		requires:[]
-	},
 	't-framework':{
-		fullpath:cubeeBase+'tbwidget/t-framework.js',
+		fullpath:'http://taotao-wd.ns1.name/jayli/cubee/demo/js/t-framework.js',
 		requires:['t-base']
 	}
 });
