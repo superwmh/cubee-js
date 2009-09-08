@@ -3,7 +3,7 @@ var TBloader = TBloader || new Cubee();
 //T.DP.framework
 TBloader.addmojo({
 	't-framework':{
-		fullpath:'http://taotao-wd.ns1.name/jayli/cubee/demo/js/t-framework.js',
+		fullpath:'http://taobao-wd.ns1.name/jayli/cubee/demo/js/t-framework.js',
 		requires:['t-base']
 	}
 });
