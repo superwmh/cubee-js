@@ -8,7 +8,6 @@ $header = array(
 	'png' => 'Content-Type: image/png'
 );
 $type = '';
-
 function get_contents($url){
 	$ch =curl_init($url);
 	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
