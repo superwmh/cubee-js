@@ -11,8 +11,10 @@
 #calendar_container{position:absolute;}
 
 </style>
-<!--script type="text/javascript" src="http://cn.yimg.com/i/yui/3.0.0b1/build/yui/yui-min.js"></script-->
-<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-cubee-config.js"></script>
+<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-tbframe.js">
+	//定义cubeeBase
+	var cubeeBase = 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
+</script>
 </head>
 
 <body class="yui-skin-sam">
@@ -50,12 +52,12 @@
 var TBproject = new Cubee().addmojo({
 	/*主程序使用Cubee，模块使用单体*/
 	't-project':{
-		fullpath:hostname+'/project/js/t-project.js',
+		fullpath:'http://taobao-wd.ns1.name/jayli/cubee/project/js/t-project.js',
 		requires:['node','event','msg','yahoo-loader','slider','base']
 	},
 	/*主程序使用Cubee，模块使用yui.add*/
 	't-project2':{
-		fullpath:hostname+'/project/js/t-project2.js'
+		fullpath:'http://taobao-wd.ns1.name/jayli/cubee/project/js/t-project2.js'
 	}
 }).require('*'/*,'t-project','t-project2'*/).onReady(function(){
 	T.DP.projectname.init();
@@ -76,11 +78,12 @@ var TBproject = new Cubee().addmojo({
 
 
 <!--框架js-->
+<script type="text/javascript" src="http://taobao-wd.ns1.name/jayli/cubee/demo/t-testframe.js"></script>
 <script type="text/javascript">
 //页面框架
 TBloader.addmojo({
 	't-framework-hack':{
-		fullpath:hostname+'/project/js/t-framework-hack.js',
+		fullpath:'http://taobao-wd.ns1.name/jayli/cubee/project/js/t-framework-hack.js',
 		requires:['node','event','t-framework']
 	}
 });
