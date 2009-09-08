@@ -12,6 +12,14 @@
  * Company:			Yahoo! CN
  * 
 **************************************************************************/
+
+/*
+ * get param from htmlpage
+ */
+var scripts = document.getElementsByTagName("script");
+eval(scripts[ scripts.length - 1 ].innerHTML);
+
+
 /*
  * hack for yui3
  */
@@ -92,13 +100,12 @@ var onDOMContentLoaded = function(onready,config){
 /*************************************************************************
 开始包装yui3
 **************************************************************************/
-//for test only
-hostname = 'http://taobao-wd.ns1.name/jayli/cubee/';
+var cubeeBase = cubeeBase || 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
 
 var Cubee = Cubee || function(){
 	this.init.apply(this, arguments);
 };
-Cubee._INFOPATH = hostname+'/cubee/cubee-info.js';//常用的全局定义
+Cubee._INFOPATH = cubeeBase+'cubee-info.js';//常用的全局定义
 Cubee._GM = {};//global Modules
 Cubee._GR = [];//global Requires
 Cubee._AGR = [];//all global Requires
