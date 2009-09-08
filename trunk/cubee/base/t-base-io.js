@@ -1,4 +1,12 @@
 
-T.add('t-base-io',function(T){
+T.add('t-base-io',function(Y){
+	Y.mix(T.base,{
+		
+		getData:function(){},
+		postData:function(){}
+		
+		
+		
+	});
 	
 });
