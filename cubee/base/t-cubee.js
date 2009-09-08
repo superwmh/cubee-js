@@ -45,10 +45,7 @@ YUI.namespace = YUI.prototype.namespace = function() {
  * @param { Object } config [可选]配置项 
  */  
 var onDOMContentLoaded = function(onready,config){  
-    //浏览器检测相关对象，在此为节省代码未实现，实际使用时需要实现。  
-    //var Browser = {};  
 	var Browser = YUI().UA;
-    //设置是否在FF下使用DOMContentLoaded（在FF2下的特定场景有Bug）  
      this.conf = {enableMozDOMReady:true};  
      if( config )  
      for( var p in config)  
@@ -57,7 +54,6 @@ var onDOMContentLoaded = function(onready,config){
      var isReady = false;  
      function doReady(){  
          if( isReady ) return;  
-         //确保onready只执行一次  
          isReady = true;  
          onready();  
      }  
@@ -118,6 +114,7 @@ Cubee.prototype = {
 		this.allRequiredMojo = Cubee._AGR;
 		this.cubeeInfoPath = Cubee._INFOPATH;
 		this.start = new Function;
+		this.addmodule = this.addmojo;
 	},
 	addmojo:function(modules){
 		var fd = this;
