@@ -2,13 +2,17 @@ YUI.namespace('T.base');
 
 
 YUI.add('t-base',function(Y){
+	/**
+	* T.base
+	* @class T.base T.base
+	*/
 
 	Y.mix(T.base , {
 
 	/**
-	*得到URL中的变量
-	*url : 需要得到变量的URL，默认为当前页面的链接
-	*返回为JSON，可以通过getUrlValue()['key']来得到
+	* 得到URL中search字段和hash字段的变量，search字段优先
+	* @param { string } 需要得到变量的URL，默认为当前页面的链接
+	* @return { object } 返回为JSON，可以通过getUrlValue()['key']来得到
 	*/ 
 	getUrlValue:function(url){
 		var url = (url !== undefined) ? url : window.location.href;
@@ -28,7 +32,11 @@ YUI.add('t-base',function(Y){
 			return value;
 		}
 	},
-	//prepare
+	/**
+	* 得到URL中hash字段的变量
+	* @param { string } 需要得到变量的URL，默认为当前页面的链接
+	* @return { object } 返回为JSON，可以通过getHash()['key']来得到
+	*/ 
 	getHash : function(sUrl){
 		var url = sUrl || window.location.href;
 		if(url.indexOf("#") < 0){
@@ -46,7 +54,12 @@ YUI.add('t-base',function(Y){
 		}
 	},
 
-	//sUrl,{key:value},返回一个完整的url
+	/**
+	* 给url中的hash字段赋参数，返回一个完整的url
+	* @param { string } sUrl: 需要赋值的url字符串
+	* @param { object } data: 需要赋值的key:value对
+	* @return { string } 返回一个完整的url
+	*/ 
 	setHash : function(sUrl, data){
 		var url = sUrl||window.location.href;
 		if(url.indexOf("#") < 0){
@@ -65,10 +78,10 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	 * 拆分数组
-	 * a：原始数组
-	 * n：步长
-	 * 返回拆分好的数组
-	 * */
+	 * @param { array } a: 原始数组
+	 * @param { number } n: 步长 
+	 * @return { array } aa:返回拆分好的数组
+	 */
 	breakupArray:function(a,n){
 		if(!YAHOO.lang.isArray(a))return a;
 		var aa = [];
@@ -83,10 +96,9 @@ YUI.add('t-base',function(Y){
 		return aa;
 	 },
 	/**
-	*删除组的方法
-	*v : 要删除的数值
-	*a : 需要操作的数组
-	*只匹配第一个
+	* 删除数组中的item,只匹配第一个
+	* @param { value } v : 要删除的数值
+	* @param { array }a : 需要操作的数组
 	*/
 	removeArray : function(v, a){
 		for(var i=0,m=a.length; i<m; i++){
@@ -97,11 +109,10 @@ YUI.add('t-base',function(Y){
 		}
 	},
 	/**
-	*替换组的方法
-	*v : 要替换的数值
-	*n : 新的数值
-	*a : 需要操作的数组
-	*只匹配第一个
+	* 替换数组中的item,只匹配第一个
+	* @param { value } v : 要替换的数值
+	* @param { value } n : 新的数值
+	* @param { array } a : 需要操作的数组
 	*/
 	replaceArray : function(v, n, a){
 		for(var i=0,m=a.length; i<m; i++){
@@ -112,9 +123,10 @@ YUI.add('t-base',function(Y){
 		}
 	},
 	/**
-	*判断数值是否存在数组中
-	*v : 要匹配的数值
-	*a : 存在的数组
+	* 判断数值是否存在数组中
+	* @param {value } v : 要匹配的数值
+	* @param { array } a : 存在的数组
+	* @return { boolean } 返回一个布尔值
 	*/
 	inArray : function(v, a){
 		var o = false;
@@ -127,16 +139,18 @@ YUI.add('t-base',function(Y){
 		return o;
 	},
 	/**
-	*计算字符长度
-`	*string : 需要求长度的字符串
+	* 计算字符长度,一个中文当成2个英文长度计算
+`	* @param { string }  需要求长度的字符串
+	* @return { number } 得到计算得的长度
 	*/
 	cn_strlen : function(string){
 		return string.replace(/[^\u00-\uFF]/g, "**").length;
 	},
 	/**
-	*截字函数
-	*string : 需要截取的字符串
-	*length : 需要截取的长度（以英文为准，一个中文算两个英文，会自动加...）
+	* 截字函数,可以兼容中文截取
+	* @param {string} string:需要截取的字符串
+	* @param {number} length : 需要截取的长度（以英文为准，一个中文算两个英文，会自动加...）
+	* @return {string} 返回截取后的字符串
 	*/
 	substr : function(string, length){
 		//string为空时返回空白
@@ -174,10 +188,10 @@ YUI.add('t-base',function(Y){
 	},
 
 	/**
-	*模板函数
-	*templet : 模板
-	*data : 模板需要的数据
-	*输出按照模板整理好的HTML
+	* 模板函数
+	* @param { string } templet : 模板
+	* @param { object } data : 模板需要的数据
+	* @return 输出按照模板整理好的HTML
 	*/
 	templetShow : function(templet, data){
 		var fd = this;
@@ -217,22 +231,27 @@ YUI.add('t-base',function(Y){
 	},
 
 
-	getData:function(){},
-	postData:function(){},
 	/**
+	* 对象的克隆
 	* @method YAHOO.CN.sns.base.clone
 	* @param o 被克隆的对象
 	*/
 	clone :Y.clone,
 	/**
+	* 长连续字符的解决方案,过滤字符串
 	* @method YAHOO.CN.sns.base.wbtrim
-	* @param str ：原始字符串
-	* @param count:截断的单位长度,默认为40
-	* @return str，结果字符串
-	* @ 	长连续字符的解决方案
+	* @param { string } str ：原始字符串
+	* @param { number } count:截断的单位长度,默认为40
+	* @return { string } str:返回过滤后的字符串
 	*/
 	wbtrim:function(str,count){},
-	//trimsize
+	/**
+	* 过滤输出长字符串,多余的部分使用省略号表示
+	* @method trimSize
+	* @param { string } str ：原始字符串
+	* @param { number } bsize:需要输出的字符串长度
+	* @return { string } str:返回截取后的字符串
+	*/
 	trimSize:function(str, bsize) {
 		if(!str && 'string' != typeOf(str)) {
 			return '';
@@ -254,132 +273,27 @@ YUI.add('t-base',function(Y){
 		}
 		return rs;
 	},
-	trimDate:function(str) {
-		if(!str && 'string' != typeOf(str)) {
-			return '';
-		}
-		str = trim(str);
-		var sp = str.split(' ');
-		if(null == sp[1]) {
-			return str;
-		}
-		var dd = sp[0].split('-');
-		if(null == dd[2]) {
-			return str;
-		}
-		var tt = sp[1].split(':');
-		if(null == tt[2]) {
-			return str;
-		}
-		var old = new Date();
-		old.setYear(dd[0]);
-		old.setMonth(dd[1]-1);
-		old.setDate(dd[2]);
-		old.setHours(tt[0], tt[1], tt[2]);
-		var now = new Date();
-		var delta = now.getTime() - old.getTime();
-		var textTemplate = {1:['刚才', ' 星期前', ' 天前', ' 小时前', ' 分钟前'], 2:['刚才', ' 星期', ' 天', ' 小时', ' 分钟']};
-		if(delta>=0) {
-			text = textTemplate[1];
-		}
-		else {
-			delta = -delta;
-			text = textTemplate[2];
-		}
-		if(delta > 1000 * 60 * 60 * 24 * 30) {
-			return str.split(' ')[0]; 
-		}
-		if(delta <= 0) {
-			return text[0];
-		}
-		var zhou = Math.floor(delta/(1000 * 60 * 60 * 24 * 7));
-		if(zhou) {
-			return (zhou+text[1]);
-		}
-		var tian = Math.floor(delta/(1000 * 60 * 60 * 24));
-		if(tian) {
-			return (tian+text[2]);
-		}
-		var xiaoshi = Math.floor(delta/(1000 * 60 * 60));
-		if(xiaoshi) {
-			return (xiaoshi+text[3]);
-		}
-		var fenzhong = Math.floor(delta/(1000 * 60));
-		if(fenzhong) {
-			return (fenzhong+text[4]);
-		}
-		return text[0];
+	/**
+	* 返回移除了任何 HTML 或 XML 标签的字符串
+	* @method stripTags
+	* @param { string } str ：原始字符串
+	* @return { string } str:返回过滤后的字符串
+	*/
+	stripTags: function(str) {
+		return str.replace(/<\/?[^>]+>/gi, '');
 	},
-	trimDate2:function(str) {
-		if(!str && 'string' != typeOf(str)) {
-			return '';
-		}
-		str = trim(str);
-		var sp = str.split(' ');
-		if(null == sp[1]) {
-			return str;
-		}
-		var dd = sp[0].split('-');
-		if(null == dd[2]) {
-			return str;
-		}
-		var tt = sp[1].split(':');
-		if(null == tt[2]) {
-			return str;
-		}
-		var old = new Date();
-		old.setYear(dd[0]);
-		old.setMonth(dd[1]-1);
-		old.setDate(dd[2]);
-		old.setHours(tt[0], tt[1], tt[2]);
-		var today_midnight = new Date();
-		today_midnight.setHours(0, 0, 0, 0);
-		var delta = today_midnight.getTime() - old.getTime();
-		if(delta <= 0) {
-			return '今天';
-		}
-		else if(delta > 0 && delta < 1000 * 60 * 60 * 24) {
-			return '昨天';
-		}
-		else {
-			return dd[0]+'年'+dd[1]+'月'+dd[2]+'日';
-		}
-	},
-	trimDate3:function(str) {
-		if(!str && 'string' != typeOf(str)) {
-			return '';
-		}
-		str = trim(str);
-		var sp = str.split(' ');
-		if(null == sp[1]) {
-			return str;
-		}
-		var dd = sp[0].split('-');
-		if(null == dd[2]) {
-			return str;
-		}
-		var tt = sp[1].split(':');
-		if(null == tt[2]) {
-			return str;
-		}
-		var newd = new Date();
-		if(newd.getFullYear() == dd[0]) {
-			return dd[1]+'月'+dd[2]+'日';
-		}
-		else {
-			return dd[0]+'年'+dd[1]+'月'+dd[2]+'日';
-		}
-	},
-	//返回移除了任何 HTML 或 XML 标签的字符串
-	stripTags: function() {
-		return this.replace(/<\/?[^>]+>/gi, '');
-	},
-	//返回移除了任何 <script /> 块的字符串
+	/**
+	* 返回移除了任何script块的字符串
+	* @method stripScripts
+	* @param { string } str ：原始字符串
+	* @return { string } str:返回过滤后的字符串
+	*/
 	stripScripts: function(str) {
 		return str.replace(new RegExp('<script[^>]*>([\\S\\s]*?)<\/script>', 'img'), '');
-	},
+	}
 
 	//与 escapeHTML() 相反
+	/*
 	unescapeHTML: function(str) {
 		var temp = document.createElement("div");
 		temp.innerHTML = str;
@@ -387,6 +301,7 @@ YUI.add('t-base',function(Y){
 		temp.removeChild(temp.firstChild)
 		return result;
 	}
+	*/
 
 
 	});//base end 

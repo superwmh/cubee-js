@@ -1,7 +1,7 @@
 
 /******************************cubee.js*****************************************/
 /*************************************************************************
- * Copyright (c):	2009, Yahoo! CN. All rights reserved.
+ * Copyright (c):	2009, ued@Taobao All rights reserved.
  * Filename:		cubee.js
  * FrameworkName:	Cubee
  * Infomation:		cubee对yui3的封装
@@ -9,7 +9,7 @@
  * Build: 			trunk
  * Created:			08/28/2009
  * Author:			Jay Li (Engineer), jay.li@alibaba-inc.com
- * Company:			Yahoo! CN
+ * Company:			Taobao
  * 
 **************************************************************************/
 
@@ -20,9 +20,10 @@ var scripts = document.getElementsByTagName("script");
 eval(scripts[ scripts.length - 1 ].innerHTML);
 
 
-/*
- * hack for yui3
- */
+/** 
+ * 对yui3的namespace的hack，yui3的namespace存在严重bug 
+ * @param { string } o[必填] 参数同yui.namespace的参数 
+ */  
 
 YUI.namespace = YUI.prototype.namespace = function() {
 	var a=arguments, o=null, i, j, d;
@@ -39,10 +40,10 @@ YUI.namespace = YUI.prototype.namespace = function() {
 	return o;
 };
 
-/* 
+/** 
  * 注册浏览器的DOMContentLoaded事件 
- * @param { Function } onready [必填]在DOMContentLoaded事件触发时需要执行的函数 
- * @param { Object } config [可选]配置项 
+ * @param { function } onready [必填]在DOMContentLoaded事件触发时需要执行的函数 
+ * @param { object } config [可选]配置项 
  */  
 var onDOMContentLoaded = function(onready,config){  
 	var Browser = YUI().UA;
@@ -98,6 +99,11 @@ var onDOMContentLoaded = function(onready,config){
 **************************************************************************/
 var cubeeBase = cubeeBase || 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
 
+/**
+ * Cubee构造器,用于构造一个cubee对象
+ * @class Cubee
+ * @constructor Cubee
+ */	
 var Cubee = Cubee || function(){
 	this.init.apply(this, arguments);
 };
@@ -116,6 +122,12 @@ Cubee.prototype = {
 		this.start = new Function;
 		this.addmodule = this.addmojo;
 	},
+	/**
+	 * 添加一个模块的声明
+	 * @param { object } 要添加模块的格式化对象，和yui3的添加模块格式一致
+	 * @method addmojo 或者 addmodule
+	 * @member Cubee
+	 */	
 	addmojo:function(modules){
 		var fd = this;
 		for(var i in modules){
@@ -129,13 +141,31 @@ Cubee.prototype = {
 		fd.addedMojo = fd.distinct(fd.addedMojo);
 		return fd;
 	},
+	/**
+	 * 模块添加完毕的成功回调
+	 * @param { function } 回调函数
+	 * @method onReady
+	 * @member Cubee
+	 */	
 	onReady:function(foo){
 		var fd = this;
 		fd.start = foo;
 		return this;
 	},
+	/**
+	 * 模块添加完毕的失败回调
+	 * @param { function } 回调函数
+	 * @method onReady
+	 * @member Cubee
+	 */	
 	onFailure:function(o){},
 	configure:function(o){},
+	/**
+	 * 添加对定义好的模块的引用
+	 * @param { string } 要引用的模块的名字，如果要引用改逻辑下辖所有的模块，使用"*" 
+	 * @method require
+	 * @member Cubee
+	 */	
 	require:function(){
 		var fd = this;
 		fd.requiredMojo = fd.requiredMojo || [];
@@ -153,9 +183,12 @@ Cubee.prototype = {
 		fd.modules.info.requires = fd.requiredMojo;
 		return fd;
 	},
-	/* 
-	 * 数组去重
-	 * @return Array 返回去重后的数组
+	/** 
+	 * 给数组去重
+	 * @method  distinct  
+	 * @param { array } 需要执行去重操作的数组
+	 * @return { array } 返回去重后的数组
+	 * @member Cubee
 	 */  
 	distinct:function(A){
 		if((typeof A).toLowerCase() != 'array')return A;
@@ -171,9 +204,10 @@ Cubee.prototype = {
 		return a;
 	},
 	/**
-	*判断数值是否存在数组中
-	*v : 要匹配的数值
-	*a : 存在的数组
+	* 判断数值是否存在数组中
+	* @param { value } v : 要匹配的数值
+	* @param { array } a : 存在的数组
+	* @member Cubee
 	*/
 	inArray : function(v, a){
 		var o = false;
