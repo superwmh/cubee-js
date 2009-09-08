@@ -1,38 +1,18 @@
 var TBloader = TBloader || new Cubee();
 
-//T.DP.base & T.DP.framework
+//T.base
 TBloader.addmojo({
 	't-base':{
 		fullpath:cubeeBase+'base/t-base.js',
 		requires:[]
 	},
-	't-framework':{
-		fullpath:cubeeBase+'tbwidget/t-framework.js',
+	't-base-io':{
+		fullpath:cubeeBase+'tbwidget/t-base-io.js',
+		requires:['t-base']
+	},
+	't-base-templet':{
+		fullpath:cubeeBase+'tbwidget/t-base-templet.js',
 		requires:['t-base']
 	}
 });
 
-//msg弹出框
-TBloader.addmojo({
-	'yahoo-dom-event':{
-		fullpath:'http://cn.yimg.com/i/yui/2.7.0/build/yahoo-dom-event/yahoo-dom-event.js'
-	},
-	'msg-style':{
-		type:'css',
-		fullpath:'http://cn.yimg.com/i/sns/00007/css/y_global_1.css'
-	},
-	msg:{
-		fullpath:'http://cn.yimg.com/i/sns/js/msg_1_1_0_min.js',
-		requires:['yahoo-dom-event','msg-style']
-	}
-});
-
-//用yui2loader调用yui2的日历选择
-TBloader.addmojo({
-	'yahoo-loader':{
-		fullpath:'http://developer.yahoo.com/yui/build/yuiloader/yuiloader-min.js'
-	},
-	't-calendar':{
-		requires:['yahoo-loader']
-	}
-});
