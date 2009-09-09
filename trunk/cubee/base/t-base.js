@@ -1,3 +1,9 @@
+
+/**
+* YUI.namespace
+* @namespace T.base T.base
+*/
+
 YUI.namespace('T.base');
 
 
