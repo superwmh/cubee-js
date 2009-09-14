@@ -78,15 +78,14 @@ var TBproject = new Cubee().addmojo({
 
 
 <!--框架js-->
+<!--应用js模块的定义在这个js文件中-->
+<script type="text/javascript" src='demo/js/t-testframe.js'></script>
 <script type="text/javascript">
 //页面框架
 TBloader.addmojo({
-	't-testframe':{
-		fullpath:cubeeBase +'../demo/js/t-testframe.js'
-	},
 	't-framework-hack':{
 		fullpath:cubeeBase + '../demo/js/t-framework-hack.js',
-		requires:['node','event','t-framework','t-testframe']
+		requires:['node','event','t-framework']
 	}
 });
 TBloader.require('t-framework-hack').onReady(function(){
