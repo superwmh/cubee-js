@@ -1,21 +1,18 @@
-
-/******************************cubee.js*****************************************/
-/*************************************************************************
- * Copyright (c):	2009, ued@Taobao All rights reserved.
- * Filename:		cubee.js
- * FrameworkName:	Cubee
- * Infomation:		cubee对yui3的封装
- * YUI version: 	3.0.0b1
- * Build: 			trunk
- * Created:			08/28/2009
- * Author:			Jay Li (Engineer), jay.li@alibaba-inc.com
- * Company:			Taobao
- * 
-**************************************************************************/
-
+//==================================cubee.js=====================================
 /*
- * get param from htmlpage
- */
+  Copyright (c):	2009, ued@Taobao All rights reserved.
+  Filename:		cubee.js
+  FrameworkName:	Cubee
+  Infomation:		cubee对yui3的封装
+  YUI version: 	3.0.0b1
+  Build: 			trunk
+  Created:			08/28/2009
+  Author:			Jay Li (Engineer), jay.li@alibaba-inc.com
+  Company:			Taobao
+  
+*/
+
+//get param from htmlpage
 var scripts = document.getElementsByTagName("script");
 eval(scripts[ scripts.length - 1 ].innerHTML);
 
@@ -24,7 +21,6 @@ eval(scripts[ scripts.length - 1 ].innerHTML);
  * 对yui3的namespace的hack，yui3的namespace存在严重bug 
  * @param { string } o[必填] 参数同yui.namespace的参数 
  */  
-
 YUI.namespace = YUI.prototype.namespace = function() {
 	var a=arguments, o=null, i, j, d;
 	for (i=0; i<a.length; i=i+1) {
@@ -94,9 +90,8 @@ var onDOMContentLoaded = function(onready,config){
      }  
  };  
 
-/*************************************************************************
-开始包装yui3
-**************************************************************************/
+//开始包装yui3
+
 var cubeeBase = cubeeBase || 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
 
 /**
@@ -223,7 +218,7 @@ Cubee.prototype = {
 
 //Cubee over
 
-/********************t-global.js****************************/
+//======================t-global.js==========================
 var T = T || YUI();
 TBloader = new Cubee();
 
