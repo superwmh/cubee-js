@@ -1,25 +1,28 @@
-
-/**
-* YUI.namespace
-* @namespace T.base T.base
-*/
-
 YUI.namespace('T.base');
 
-
 YUI.add('t-base',function(Y){
-	/**
-	* T.base
-	* @class T.base T.base
-	*/
+    /**
+     * @class T.base
+     */
 
 	Y.mix(T.base , {
 
 	/**
 	* 得到URL中search字段和hash字段的变量，search字段优先
 	* @param { string } 需要得到变量的URL，默认为当前页面的链接
+	* @memberOf T.base
 	* @return { object } 返回为JSON，可以通过getUrlValue()['key']来得到
 	*/ 
+        /**
+         * Removes a plugin from the host object. This will destroy the 
+         * plugin instance and delete the namepsace from the host object. 
+         *
+         * @method unplug
+         * @param {String | Function} plugin The namespace of the plugin, or the plugin class with the static NS namespace property defined. If not provided,
+         * all registered plugins are unplugged.
+         * @return {Base} A reference to the host object
+         * @chainable
+         */
 	getUrlValue:function(url){
 		var url = (url !== undefined) ? url : window.location.href;
 		if(url.indexOf("#") > -1){
@@ -40,6 +43,7 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	* 得到URL中hash字段的变量
+	* @memberOf T.base
 	* @param { string } 需要得到变量的URL，默认为当前页面的链接
 	* @return { object } 返回为JSON，可以通过getHash()['key']来得到
 	*/ 
@@ -65,6 +69,7 @@ YUI.add('t-base',function(Y){
 	* @param { string } sUrl: 需要赋值的url字符串
 	* @param { object } data: 需要赋值的key:value对
 	* @return { string } 返回一个完整的url
+	* @memberOf T.base
 	*/ 
 	setHash : function(sUrl, data){
 		var url = sUrl||window.location.href;
@@ -87,6 +92,7 @@ YUI.add('t-base',function(Y){
 	 * @param { array } a: 原始数组
 	 * @param { number } n: 步长 
 	 * @return { array } aa:返回拆分好的数组
+	 * @memberOf T.base
 	 */
 	breakupArray:function(a,n){
 		if(!YAHOO.lang.isArray(a))return a;
@@ -103,6 +109,7 @@ YUI.add('t-base',function(Y){
 	 },
 	/**
 	* 删除数组中的item,只匹配第一个
+	* @memberOf T.base
 	* @param { value } v : 要删除的数值
 	* @param { array }a : 需要操作的数组
 	*/
@@ -116,6 +123,7 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	* 替换数组中的item,只匹配第一个
+	* @memberOf T.base
 	* @param { value } v : 要替换的数值
 	* @param { value } n : 新的数值
 	* @param { array } a : 需要操作的数组
@@ -130,6 +138,7 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	* 判断数值是否存在数组中
+	* @memberOf T.base
 	* @param {value } v : 要匹配的数值
 	* @param { array } a : 存在的数组
 	* @return { boolean } 返回一个布尔值
@@ -146,7 +155,8 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	* 计算字符长度,一个中文当成2个英文长度计算
-`	* @param { string }  需要求长度的字符串
+	* @memberOf T.base
+	* @param { string }  需要求长度的字符串
 	* @return { number } 得到计算得的长度
 	*/
 	cn_strlen : function(string){
@@ -154,6 +164,7 @@ YUI.add('t-base',function(Y){
 	},
 	/**
 	* 截字函数,可以兼容中文截取
+	* @memberOf T.base
 	* @param {string} string:需要截取的字符串
 	* @param {number} length : 需要截取的长度（以英文为准，一个中文算两个英文，会自动加...）
 	* @return {string} 返回截取后的字符串
@@ -195,6 +206,7 @@ YUI.add('t-base',function(Y){
 
 	/**
 	* 模板函数
+	* @memberOf T.base
 	* @param { string } templet : 模板
 	* @param { object } data : 模板需要的数据
 	* @return 输出按照模板整理好的HTML
@@ -223,6 +235,7 @@ YUI.add('t-base',function(Y){
 	/**
 	* add event,给既定函数o添加fun的函数监听，使得o运行时自动执行fun 
 	* @method AE 
+	* @memberOf T.base
 	* @param {Function} 被观察者  
 	* @param {Function} 要fire的函数 
 	*/
@@ -240,12 +253,14 @@ YUI.add('t-base',function(Y){
 	/**
 	* 对象的克隆
 	* @method YAHOO.CN.sns.base.clone
+	* @memberOf T.base
 	* @param o 被克隆的对象
 	*/
 	clone :Y.clone,
 	/**
 	* 长连续字符的解决方案,过滤字符串
 	* @method YAHOO.CN.sns.base.wbtrim
+	* @memberOf T.base
 	* @param { string } str ：原始字符串
 	* @param { number } count:截断的单位长度,默认为40
 	* @return { string } str:返回过滤后的字符串
@@ -256,6 +271,7 @@ YUI.add('t-base',function(Y){
 	* @method trimSize
 	* @param { string } str ：原始字符串
 	* @param { number } bsize:需要输出的字符串长度
+	* @memberOf T.base
 	* @return { string } str:返回截取后的字符串
 	*/
 	trimSize:function(str, bsize) {
@@ -283,6 +299,7 @@ YUI.add('t-base',function(Y){
 	* 返回移除了任何 HTML 或 XML 标签的字符串
 	* @method stripTags
 	* @param { string } str ：原始字符串
+	* @memberOf T.base
 	* @return { string } str:返回过滤后的字符串
 	*/
 	stripTags: function(str) {
@@ -292,6 +309,7 @@ YUI.add('t-base',function(Y){
 	* 返回移除了任何script块的字符串
 	* @method stripScripts
 	* @param { string } str ：原始字符串
+	* @memberOf T.base
 	* @return { string } str:返回过滤后的字符串
 	*/
 	stripScripts: function(str) {
