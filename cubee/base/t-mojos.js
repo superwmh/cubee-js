@@ -13,6 +13,9 @@ TBloader.addmojo({
 	't-base-templet':{
 		fullpath:cubeeBase+'tbwidget/t-base-templet.js',
 		requires:['t-base']
-	}
+	},
+
+	///////////
+
 });
 

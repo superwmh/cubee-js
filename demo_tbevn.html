@@ -1,1 +1,94 @@
-ii
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=gb2312" />
+		<title>TBra Core Demo</title>
+		<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-mojos.js">
+			//定义cubeeBase
+			var cubeeBase = 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
+		</script>
+	</head>
+	<body>
+	<h2>Test TB.env</h2>	
+	<div id="tb-env">
+		<!--tb-env show here-->
+	</div>
+	<h2>Test TB.common.formatMessage</h2>
+	<code>
+		TB.common.formatMessage('{0}天有{1}个小时', [1, 24]);
+	</code>
+	<p>
+	<div id="tb-fm1">
+		<!--tb-fm show here-->
+	</div>
+	</script>
+	</p>
+	
+	<code>
+		TB.common.formatMessage('{day}天有{hour}个小时', {day:1, hour:24}, function(o){return o*2;});
+	</code>
+	<p>
+	<div id="tb-fm2">
+		<!--tb-fm show here-->
+	</div>
+	</p>
+	
+	
+	<h2>Test TB.applyIf</h2>
+	<div id="tb-ai"></div>
+	
+	<h2>Test Math.randomInt</h2>	
+	<div id="tb-ri"></div>
+	
+	<script type="text/javascript">
+	/*
+	(function() {
+		var count = 200;
+		var repeat = 0;
+		var randoms = [];
+		for(var i = 0; i < count; i++) {
+			var random = Math.randomInt(count);
+			if(randoms.indexOf(random) != -1) {
+				repeat++;
+			} else {
+				randoms.push(random);
+			}
+		}
+		document.write('repeat time: ' + repeat + '<br />');
+		document.write('randoms.length: ' + randoms.length + '<br />');
+	})();		
+	*/
+	</script>
+	
+	
+	<h2>Test TB.common.parseUri</h2>	
+	<div id="tb-pu"></div>
+	
+	<script type="text/javascript">
+	/*
+	(function() {
+		var uri = TB.common.parseUri('http://list.taobao.com/browse/1512/t-95---------------------------------40--coefp-0-all-1512.htm?at_topsearch=1#ListItem');
+		for (var i in uri) {
+			document.write(i + " = " + uri[i] + "<br />");
+		}		
+	})();			
+	*/
+	</script>	
+<script type="text/javascript">
+//页面框架
+TBloader.addmojo({
+	'tbra':{
+		fullpath:'http://assets.taobaocdn.com/tbra/1.0/tbra-aio.js',
+	},
+	't-tbraproject':{
+		fullpath:cubeeBase + '../demo/js/t-tbra-project.js',
+		requires:['tbra','node']
+	}
+}).require('t-tbraproject').onReady(function(){
+	T.tbraTest.init();
+
+});
+</script>
+	
+	</body>
+</html>
