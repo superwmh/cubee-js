@@ -220,10 +220,12 @@ Cubee.prototype = {
 
 //======================t-global.js==========================
 var T = T || YUI();
+var yuiCfg = yuiCfg || {};
 TBloader = new Cubee();
 
 onDOMContentLoaded(function(){
-	YUI({modules:TBloader.modules}).use('info',function(Y){
+	T.mix(yuiCfg,{modules:TBloader.modules});
+	YUI(yuiCfg).use('info',function(Y){
 		Y.mix(T,Y);
 		TBloader.start(this,arguments);
 	});
