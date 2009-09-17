@@ -102,7 +102,11 @@ var cubeeBase = cubeeBase || 'http://taobao-wd.ns1.name/jayli/cubee/cubee/';
 var Cubee = Cubee || function(){
 	this.init.apply(this, arguments);
 };
-Cubee._INFOPATH = cubeeBase+'cubee-info.js';//常用的全局定义
+
+Cubee._INFO = cubeeInfo || {
+	fullpath:cubeeBase+'cubee-info.js',
+	requires:[]
+};
 Cubee._GM = {};//global Modules
 Cubee._GR = [];//global Requires
 Cubee._AGR = [];//all global Requires
@@ -113,7 +117,7 @@ Cubee.prototype = {
 		this.addedMojo = [];
 		this.requiredMojo = Cubee._GR;
 		this.allRequiredMojo = Cubee._AGR;
-		this.cubeeInfoPath = Cubee._INFOPATH;
+		this.cubeeInfo = Cubee._INFO;//cubeeinfo模块的定义
 		this.start = new Function;
 		this.addmodule = this.addmojo;
 	},
@@ -129,10 +133,7 @@ Cubee.prototype = {
 			fd.modules[i] = modules[i];
 			fd.addedMojo.push(i);
 		}
-		fd.modules.info = fd.modules.Cubee || {//cubeeinfo
-			fullpath:fd.cubeeInfoPath,
-			requries:[]
-		};
+		fd.modules.info = fd.modules.Cubee || fd.cubeeInfo;//cubeeinfo
 		fd.addedMojo = fd.distinct(fd.addedMojo);
 		return fd;
 	},
