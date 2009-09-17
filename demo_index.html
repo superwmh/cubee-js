@@ -9,19 +9,22 @@
 #bd{ padding:10px;height:500px;margin:10px 0;border:1px solid #cccccc}
 #ft{height:50px;background:lightgray;}
 #calendar_container{position:absolute;}
-
 </style>
-<script type="text/javascript" src="cb.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-mojos.js">
-	var cubeeBase = 'cubee/';
+<script type="text/javascript" src="cb.php?cubee/yui3/yui/yui.js&cubee/base/t-cubee.js&cubee/base/t-mojos.js">
+	//var cubeeBase = 'cubee/';//和cubeeInfo两者定义其一就可以，用来判断是否combo
+	var cubeeInfo = {
+		path:'cubee/cubee-info.js',
+		tbmojo:true,
+		requires:[]
+	};
 	var yuiCfg = {
-		base:'http://cn.yimg.com/i/yui/3.0.0b1/build/', 
-		root:"i/yui/3.0.0b1/build/",  
-		comboBase:"http://cn.yimg.com/combo?", 
+		base:'http://taobao-wd.ns1.name/jayli/cubee/', 
+		root:"cubee/yui3/",  
+		comboBase:"http://taobao-wd.ns1.name/jayli/cubee/cb.php?", 
 		combine:true
 	};
 </script>
 </head>
-
 <body class="yui-skin-sam">
 <div id="doc">
 	<div id="hd">
@@ -58,12 +61,14 @@
 var TBproject = new Cubee().addmojo({
 	/*主程序使用Cubee，模块使用单体*/
 	't-project':{
-		fullpath:cubeeBase + '../demo/js/t-project.js',
+		path:'demo/js/t-project.js',
+		tbmojo:true,
 		requires:['node','event','msg','yahoo-loader','slider','base']
 	},
 	/*主程序使用Cubee，模块使用yui.add*/
 	't-project2':{
-		fullpath:cubeeBase + '../demo/js/t-project2.js'
+		path:'demo/js/t-project2.js',
+		tbmojo:true
 	}
 }).require('*'/*,'t-project','t-project2'*/).onReady(function(){
 	T.DP.projectname.init();
@@ -90,7 +95,8 @@ var TBproject = new Cubee().addmojo({
 //页面框架
 TBloader.addmojo({
 	't-framework-hack':{
-		fullpath:cubeeBase + '../demo/js/t-framework-hack.js',
+		path:'demo/js/t-framework-hack.js',
+		tbmojo:true,
 		requires:['node','event','t-framework']
 	}
 });

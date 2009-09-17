@@ -4728,18 +4728,34 @@ Y.Loader.prototype = {
             len=s.length;
             url=this.comboBase;
 
-            for (i=0; i<len; i=i+1) {
-                m = this.getModule(s[i]);
-                // Do not try to combine non-yui JS
-                if (m && m.type === this.loadType && !m.ext) {
-                    url += this.root + m.path;
-                    if (i < len-1) {
-                        url += '&';
-                    }
+			for (i=0; i<len; i=i+1) {
+				m = this.getModule(s[i]);
+				// Do not try to combine non-yui JS
+				///////////by jay//////////
 
-                    this._combining.push(s[i]);
-                }
-            }
+				/*
+				if(typeof m.snsmodule != 'undefined' && m.snsmodule == true){
+					this.loadType = m.path.replace(/^(.+)\.(.+)$/ig,'$2').toUpperCase();
+				}
+				*/
+				if ( (m && m.type === this.loadType && !m.ext) || (
+						typeof m.tbmojo != 'undefined' && 
+							m.tbmojo == true && 
+							this.loadType.toLowerCase() == m.path.replace(/^(.+)\.(.+)$/ig,'$2').toLowerCase()
+						)) {
+					if (typeof m.tbmojo != 'undefined' && m.tbmojo == true )  {
+						var _target = m.path;
+					} else {
+						var _target = this.root + m.path;
+					}
+					url += _target;
+					if (i < len - 1) {
+						url += '&';
+					}
+					this._combining.push(s[i]);
+				}
+				///////////////////////
+			}
 
             if (this._combining.length) {
 

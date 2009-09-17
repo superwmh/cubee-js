@@ -3,29 +3,40 @@
 <head>
 <title> test </title>
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-<script type="text/javascript" src="gt.php?cubee/yui3/yui/yui-min.js&cubee/base/t-cubee.js&cubee/base/t-cubee-config.js"></script>
+<script type="text/javascript" src="cb.php?cubee/yui3/yui/yui.js&cubee/base/t-cubee.js&cubee/base/t-mojos.js">
+	//var cubeeBase = 'cubee/';//和cubeeInfo两者定义其一就可以，用来判断是否combo
+	var cubeeInfo = {
+		path:'cubee/cubee-info.js',
+		tbmojo:true,
+		requires:[]
+	};
+	var yuiCfg = {
+		base:'http://taobao-wd.ns1.name/jayli/cubee/', 
+		root:"cubee/yui3/",  
+		comboBase:"http://taobao-wd.ns1.name/jayli/cubee/cb.php?", 
+		combine:true
+	};
+</script>
 </head>
 <body>
 
 
 <!--html code here-->
 
-<h3>只使用yui3的写法</h3>
-页面使用yui.use，模块使用yui.add
-
+<h3>combo</h3>
+<div id="yj-k"></div>
 
 <script type="text/javascript">
-
-//普通的YUI3使用
-var modules = {
-	jayli :{//页面逻辑，跟随页面
-		fullpath:'project/js/t-jayindex.js'
+//页面框架
+TBloader.addmojo({
+	't-jay-k':{
+		path:'demo/js/t-jay-k.js',
+		tbmojo:true,
+		requires:['dump','node']
 	}
-};
-YUI({modules:modules}).use('jayli', function(Y){
-	Y.JAY.init();//页面开始执行
+}).require('t-jay-k').onReady(function(){
+	T.DP.JAY.init();
 });
-
 </script>
 </body>
 </html>
