@@ -58,13 +58,16 @@ foreach ($_REQUEST as $k => $v) {
 		$files[] = file_get_contents('http://cn.yimg.com/'.$k);
 	}
 }
+
 header('Content-Encoding: gzip, deflate');//压缩输出
 header('Vary: Accept-Encoding');//压缩输出
-header('Expires: Sun, 15 Sep 2019 02:24:02 GMT');//压缩输出
 header('Accept-Ranges: byte');//压缩输出
 header('Connection: keep-alive');
-//header('Cache-Control: max-age=304831331');//永久缓存
-header('Cache-Control: max-age=86400, private');//缓存一天
+
+//header('Cache-Control: max-age=86400');//缓存一天
+header("Cache-Control: max-age=315360000");
+header("Expires: " . date("D, j M Y H:i:s", strtotime("now + 10 years")) ." GMT");
+
 header($header[$type]);//文件类型
 $result = join("\n",$files);
 cache(md5($result));//etag
