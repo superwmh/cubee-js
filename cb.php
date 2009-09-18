@@ -1,20 +1,5 @@
 <?php
 /**
- * get files via curl from internet
- */
-function get_contents($url){
-	$ch =curl_init($url);
-	curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
-	curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
-	$str =curl_exec($ch);
-	curl_close($ch);
-	if ($str !==false) {
-		return $str;
-	}else {
-		return '';
-	}
-}
-/**
  * set e-tag cache
  */
 function cache($etag){
@@ -37,8 +22,8 @@ $header = array(
 $type = '';
 foreach ($_REQUEST as $k => $v) {
 	$k = preg_replace(
-		array('/_js$/','/_css$/','/yui\/2_7_0/','/yui\/2_6_0/','/yui\/3_0_0/','/yui\/3_0/','/yui\/2_5_2/','/yui\/2_5_1/'), 
-		array('.js','.css','yui/2.7.0','yui/2.6.0','yui/3.0.0','yui/3.0','yui/2.5.2','yui/2.5.1'), 
+		array('/_js$/','/_css$/'), 
+		array('.js','.css'), 
 		trim($k,'/')
 	);
 	if(empty($type)) {
@@ -52,25 +37,16 @@ foreach ($_REQUEST as $k => $v) {
 	if(file_exists($k)) {
 		$files[] = file_get_contents($k);
 	}
-	else if(file_exists($kk)){
-		$files[] = file_get_contents($kk);
-	}else {
-		$files[] = file_get_contents('http://cn.yimg.com/'.$k);
-	}
 }
 
 header('Content-Encoding: gzip, deflate');//压缩输出
-header('Vary: Accept-Encoding');//压缩输出
-header('Accept-Ranges: byte');//压缩输出
+header('Vary: Accept-Encoding');
+header('Accept-Ranges: byte');
 header('Connection: keep-alive');
-
-//header('Cache-Control: max-age=86400');//缓存一天
 header("Cache-Control: max-age=315360000");
 header("Expires: " . date("D, j M Y H:i:s", strtotime("now + 10 years")) ." GMT");
-
 header($header[$type]);//文件类型
 $result = join("\n",$files);
 cache(md5($result));//etag
 echo $result;
 ?>
-
