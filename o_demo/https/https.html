@@ -1,0 +1,34 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html lang="zh">
+<head>
+<title> test </title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<script type="text/javascript" src="../../cb.php?cubee/yui3/yui/yui-min.js"></script>
+</head>
+<body>
+
+
+<!--html code here-->
+
+<h3>combo</h3>
+<div id="yj-k"></div>
+<!--yui3 hack-->
+<script type="text/javascript">
+YUI({
+	modules:{
+		't-test':{
+			path:'o_demo/https/jay-k.js',
+			tbmojo:true,
+			requires:['dump','node']
+		}
+	},
+	base:'http://taobao-wd.ns1.name/jayli/cubee/', 
+	root:"cubee/yui3/",  
+	comboBase:"http://taobao-wd.ns1.name/jayli/cubee/cb.php?", 
+	combine:true
+}).use('t-test',function(Y){
+	T.test.init();
+});
+</script>
+</body>
+</html>
