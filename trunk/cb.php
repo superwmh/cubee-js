@@ -49,4 +49,5 @@ header($header[$type]);//文件类型
 $result = join("\n",$files);
 cache(md5($result));//etag
 echo $result;
+
 ?>
