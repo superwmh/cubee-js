@@ -11,7 +11,8 @@ cubee是为了解决团队开发的诸多困难而基于yui3编写的简单框�
   * 开发应用组件(tbwidget)的规则 
 = cubee的使用原则 = 
 cubee需要针对不同项目进行定制，比如淘宝前端框架使用cubee，则需将源码针对淘宝定制一套即可，在定制好的规则基础上进行*组件开发*和*项目开发*，这将使得淘宝所有子站的前端开发风格一致，组件可重用效率极高。
-= 傻瓜式的使用cubee =
+= 简单的使用cubee =
+引入种子并配置
 {{{
 <script charset="gb18030" type="text/javascript" src="http://a.tbcdn.cn/app/dp/eb/js/cubee/base/cubee.js">
 	var jsbase = 'http://a.tbcdn.cn/app/dp/eb/js/';
@@ -30,5 +31,20 @@ cubee需要针对不同项目进行定制，比如淘宝前端框架使用cubee�
 </script>
 <script charset="gb18030" type="text/javascript" src="http://a.tbcdn.cn/app/dp/eb/js/cubee/base/t-mojos.js"></script>
 }}}
-
 其中，第一个script src代表cubee.js的地址，jsbase代表项目js文件存放的目录，yuiCfg.base代表yui3的目录，最后一个script src代表模块树的地址。
+在项目逻辑块中添加一个逻辑的js：
+{{{
+<script>
+<!--
+var TheDemo= (new Cubee()).addmojo({
+	 'demo':{
+		 fullpath:jsbase+'demo.js',
+		 tbmojo:false,
+		 requires:['t-base','dump','node','event']
+	 }
+ }).require('*').onReady(function(){
+	 T.Demo.init();
+ });
+//-->
+</script>
+}}}
