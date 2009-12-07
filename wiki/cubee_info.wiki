@@ -1,0 +1,14 @@
+#summary One-sentence summary of this page.
+
+= Introduction =
+
+了解cubee.
+
+
+= Details =
+
+cubee是为了解决团队开发的诸多困难而基于yui3编写的简单框架，这些问题大致包括 
+  * 项目维护中的代码污染
+  * 多人并行开发同一个功能时减少冲突发生
+  * 程序的可读性
+  * 对yui3的性能上的hack 
