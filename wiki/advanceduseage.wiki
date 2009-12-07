@@ -16,6 +16,7 @@ Cubee是由种子文件带出来的全局静态对象，用于生成类似yuiloa
 ||Cubee.prototype.require 	||引用模块 ||	原型方法||
 ||Cubee.prototype.distinct 	||数组去重 ||	原型方法||
 ||(new Cubee()).start 	||启动入口 ||	实例成员|| 
+
 = Cubee的用法 =
 Cubee应当在定义页面逻辑的时候使用，比如工程师需要在页面中实现一个功能模块，则可以这样： 
 Cubee应当在定义页面逻辑的时候使用，比如工程师需要在页面中实现一个功能模块，则可以这样：
