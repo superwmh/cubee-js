@@ -11,7 +11,7 @@ Cubee是由种子文件带出来的全局静态对象，用于生成类似yuiloa
 ||Cubee.prototype.addmojo ||	增加模块 ||	原型方法||
 ||Cubee.prototype.addmodule|| 	同上 	||原型方法||
 ||Cubee.prototype.onReady 	||加载成功的回调 ||	原型方法||
-||Cubee.prototype.onFailure 	加载失败的回调|| 	原型方法||
+||Cubee.prototype.onFailure ||	加载失败的回调|| 	原型方法||
 ||Cubee.prototype.configure ||	配置 	||原型方法||
 ||Cubee.prototype.require 	||引用模块 ||	原型方法||
 ||Cubee.prototype.distinct 	||数组去重 ||	原型方法||
