@@ -70,8 +70,8 @@ TBloader.addmojo({
    requires:['node','event','t-framework']
     }
 }).require('*').onReady(function(){
-    T.DP.framework.init();//框架启动
-    if(TBproject)TBproject.start();//应用的入口
+    T.DP.framework.init();//全局逻辑启动
+    if(TBproject)TBproject.start();//应用逻辑的入口
 });
 }}}
 这里框架调用完成之后应当调用应用的逻辑，应用的逻辑： 
