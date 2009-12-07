@@ -11,7 +11,7 @@
 {{{
 mini-menu，ad-slider，nava-banner
 }}}
-这些是不好的命名： 
+   这些是不好的命名： 
 {{{
 miniMenu，ad_slider，tabnew-advertisment
 }}}
