@@ -3,8 +3,7 @@
 = 引用种子及其配置 =
 种子的引用应当在页面的全局引用，即每个页面都应当包含这个全局种子的引用，引用的种子文件应当是yui.js、t-cubee.js、t- mojos.js三个文件的合并后的文件。如果这三个文件修改频繁的话，则可以将t-cubee.js和t-mojos.js拆开来，引用三个js文件,t-cubee.js是被剥离yui.js后的cubee包装器，在生产环境中，由于yui.js和t-cubee.js不会修改频繁，因此在淘宝的build版本中将两者合并成了一个cubee.js文件。 
 
-  * 不支持combine的全局引用方法参照：
-[http://code.google.com/p/cubee-js/wiki/simpleuseage]
+  * 不支持combine的全局引用方法参照：[http://code.google.com/p/cubee-js/wiki/simpleuseage]
   * 支持combine的全局引用方法：
 {{{
 <script charset="gb18030" type="text/javascript" src="http://a.tbcdn.cn/combo?app/dp/eb/js/cubee/base/cubee.js&app/dp/eb/js/cubee/base/t-mojos.js">
