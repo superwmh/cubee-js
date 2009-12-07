@@ -38,4 +38,4 @@ adBanner.start();
 }}}
 cubee对象作为组织页面js代码的工具，只能在页面中开辟出一段script代码区域中使用，不能在模块所在的js文件中使用。
 
-demo： http://taobao-wd.ns1.name/jayli/cubee/demo.html 
+demo： http://cubee-js.googlecode.com/svn/trunk/sandbox/demo_index.html 
