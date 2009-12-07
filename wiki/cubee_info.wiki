@@ -14,6 +14,6 @@ cubee是为了解决团队开发的诸多困难而基于yui3编写的简单框�
 = cubee的使用原则 = 
 cubee需要针对不同项目进行定制，比如淘宝前端框架使用cubee，则需将源码针对淘宝定制一套即可，在定制好的规则基础上进行*组件开发*和*项目开发*，这将使得淘宝所有子站的前端开发风格一致，组件可重用效率极高。
 = 简单的使用cubee =
-[http://code.google.com/p/cubee-js/w/edit/simpleuseage]
+[http://code.google.com/p/cubee-js/wiki/simpleuseage]
 = 使用Cubee构造器 =
 [http://code.google.com/p/cubee-js/wiki/work_width_cubee] & [http://code.google.com/p/cubee-js/wiki/cubee_widget_dev_more]
