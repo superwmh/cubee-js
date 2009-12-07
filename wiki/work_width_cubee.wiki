@@ -1,4 +1,21 @@
 #summary cubee的工作流程.
+= cubee的文件结构 =
+  # cubee本质上只包含一个cubee.js文件,他包括yui.js和cubee构造器
+  # 一个完整可用的cubee种子应当依次包含yui.js、t-cubee.js、t-mojos.js，其中t-mojos.js是模块依赖树
+  # 所有基于yui3（或者基于cubee）的组件分为基础组件（base）和应用组件（tbwidget），基础组件应当放在cubee/base中，应用组件应当放在cubee/tbwidget中 
+cubee所包含的文件列表:
+||文件名  	|| 描述||
+||cubee/base/t-cubee.js ||	cubee主文件，包含对yui3的启动入口的封装||
+||cubee/base/t-base.js|| 	T.base的宿主，taobao的通用函数库||
+||cubee/base/t-base-io.js ||	T.base的子模块，关于ajax的封装(待扩展)||
+||cubee/base/t-base-templet.js ||	T.base的子模块，关于templete的封装(待扩展)||
+||cubee/base/t-mojos.js ||	模块之间的依赖关系定义||
+||cubee/cubee-info.js ||	cubee的版本信息||
+||cubee/cssbase/base.css ||	通用样式库(待扩展)||
+||cubee/cssbase/grid.css ||	通用表格库(待扩展)||
+||cubee/cssbase/layout.css ||	通用布局库(待扩展)||
+||cubee/tbwidget/modulename/*.js ||	T.tbwidget的宿主，众多组件的js文件||
+||cubee/tbwidget/modulename/*.* ||	组件的css和img资源文件||
 
 = 引用种子及其配置 =
 种子的引用应当在页面的全局引用，即每个页面都应当包含这个全局种子的引用，引用的种子文件应当是yui.js、t-cubee.js、t- mojos.js三个文件的合并后的文件。如果这三个文件修改频繁的话，则可以将t-cubee.js和t-mojos.js拆开来，引用三个js文件,t-cubee.js是被剥离yui.js后的cubee包装器，在生产环境中，由于yui.js和t-cubee.js不会修改频繁，因此在淘宝的build版本中将两者合并成了一个cubee.js文件。 
