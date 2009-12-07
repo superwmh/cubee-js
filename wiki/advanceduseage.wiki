@@ -16,3 +16,26 @@ Cubee是由种子文件带出来的全局静态对象，用于生成类似yuiloa
 ||Cubee.prototype.require 	||引用模块 ||	原型方法||
 ||Cubee.prototype.distinct 	||数组去重 ||	原型方法||
 ||(new Cubee()).start 	||启动入口 ||	实例成员|| 
+= Cubee的用法 =
+Cubee应当在定义页面逻辑的时候使用，比如工程师需要在页面中实现一个功能模块，则可以这样： 
+Cubee应当在定义页面逻辑的时候使用，比如工程师需要在页面中实现一个功能模块，则可以这样：
+{{{
+new Cubee().addmojo({/*custom module*/}).require('*').onReady(function(){
+   //your code
+}).start();
+}}}
+这里的start()是这段逻辑执行的入口，这段代码是说程序模块加载完成后立即执行。通常为了保持页面逻辑清晰，则可以将start()放入需要执行的入口处。比如可以这样添加主要代码：
+{{{
+var adBanner = new Cubee().addmojo({/*custom module*/}).require('*').onReady(function(){
+   //your code
+});
+}}}
+然后在其调用处添加启动入口
+{{{
+//other code
+adBanner.start();
+//other code
+}}}
+cubee对象作为组织页面js代码的工具，只能在页面中开辟出一段script代码区域中使用，不能在模块所在的js文件中使用。
+
+demo： http://taobao-wd.ns1.name/jayli/cubee/demo.html 
