@@ -1,0 +1,168 @@
+var TBloader = TBloader || new Cubee();
+
+/*
+TBloader.addmojo({
+	//core mojos
+	't-base':{
+		path:'cubee/base/t-base.js',
+		tbmojo:true,
+		requires:[]
+	},
+	't-base-io':{
+		path:'cubee/base/t-base-io.js',
+		tbmojo:true,
+		requires:['t-base']
+	},
+	't-base-templet':{
+		//fullpath:cubeeBase+'tbwidget/t-base-templet.js',
+		path:'cubee/base/t-base-templet.js',
+		tbmojo:true,
+		requires:['t-base']
+	},
+
+	//widget
+	//评论组件
+	'tbrr':{
+		path:'cubee/tbwidget/tbrr/tbrr.js',
+		tbmojo:true,
+		requires:['node','event','dump','io','t-base','t-pagination','t-simpleditor']
+	},
+	//分页组件
+	't-pagination':{
+		path:'cubee/tbwidget/pagination/t-pagination.js',
+		tbmojo:true,
+		requires:['node','event','dump','anim']
+	},
+	//simpleditor组件
+	't-simpleditor':{
+		path:'cubee/tbwidget/simpleditor/simpleditor.js',
+		tbmojo:true,
+		requires:['node','event','dump','t-simpleditor-skin','t-base','json','tblogin']
+	},
+	't-simpleditor-skin':{
+		path:'cubee/tbwidget/simpleditor/skin.css',
+		tbmojo:true
+	},
+
+	//login控件
+	'yahoo-dom-event':{
+		path:'cubee/tbwidget/tblogin/yahoo-dom-event.js',
+		tbmojo:true
+	},
+	'tblogin-skin':{
+		path:'cubee/tbwidget/tblogin/skin.css',
+		tbmojo:true
+	},
+	'tblogin':{
+		path:'cubee/tbwidget/tblogin/tblogin.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event','node','event','tblogin-skin']
+	},
+
+	//tbstore,yui2的swfstore
+	'tbstore':{
+		path:'cubee/tbwidget/store/tbstore.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event','y2-cookie','y2-swf','y2-swfstore','y2-element','t-base']
+	},
+	'y2-cookie':{
+		path:'cubee/tbwidget/store/cookie-min.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event']
+	},
+	'y2-swf':{
+		path:'cubee/tbwidget/store/swf-min.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event','y2-element']
+	},
+	'y2-swfstore':{
+		path:'cubee/tbwidget/store/swfstore-min.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event','y2-swf','y2-cookie']
+	},
+	'y2-element':{
+		path:'cubee/tbwidget/store/element-min.js',
+		tbmojo:true,
+		requires:['yahoo-dom-event']
+	}
+});
+*/
+
+//widthout combine
+var jsbase = jsbase || 'http://a.tbcdn.cn/app/dp/eb/';
+TBloader.addmojo({
+	//core mojos
+	't-base':{
+		fullpath:jsbase+'cubee/base/t-base.js',
+		requires:[]
+	},
+	't-base-io':{
+		fullpath:jsbase+'cubee/base/t-base-io.js',
+		requires:['t-base']
+	},
+	't-base-templet':{
+		fullpath:jsbase+'cubee/base/t-base-templet.js',
+		requires:['t-base']
+	},
+
+	//widget
+	//评论组件
+	'tbrr':{
+		fullpath:jsbase+'cubee/tbwidget/tbrr/tbrr.js',
+		requires:['node','event','dump','io','t-base','t-pagination','t-simpleditor']
+	},
+	//分页组件
+	't-pagination':{
+		fullpath:jsbase+'cubee/tbwidget/pagination/t-pagination.js',
+		requires:['node','event','dump','anim']
+	},
+	//simpleditor组件
+	't-simpleditor':{
+		fullpath:jsbase+'cubee/tbwidget/simpleditor/simpleditor.js',
+		requires:['node','event','dump','t-simpleditor-skin','t-base','json','tblogin']
+	},
+	't-simpleditor-skin':{
+		fullpath:jsbase+'cubee/tbwidget/simpleditor/skin.css',
+		type:'css'
+	},
+
+	//login控件
+	'yahoo-dom-event':{
+		fullpath:jsbase+'cubee/tbwidget/tblogin/yahoo-dom-event.js',
+		tbmojo:false
+	},
+	'tblogin-skin':{
+		fullpath:jsbase+'cubee/tbwidget/tblogin/skin.css',
+		type:'css',
+		tbmojo:false
+	},
+	'tblogin':{
+		fullpath:jsbase+'cubee/tbwidget/tblogin/tblogin.js',
+		tbmojo:false,
+		requires:['yahoo-dom-event','node','event','tblogin-skin']
+	},
+
+	//tbstore,yui2的swfstore
+	'tbstore':{
+		fullpath:jsbase+'cubee/tbwidget/store/tbstore.js',
+		requires:['yahoo-dom-event','y2-cookie','y2-swf','y2-swfstore','y2-element','t-base']
+	},
+	'y2-cookie':{
+		fullpath:jsbase+'cubee/tbwidget/store/cookie-min.js',
+		requires:['yahoo-dom-event']
+	},
+	'y2-swf':{
+		fullpath:jsbase+'cubee/tbwidget/store/swf-min.js',
+		requires:['yahoo-dom-event','y2-element']
+	},
+	'y2-swfstore':{
+		fullpath:jsbase+'cubee/tbwidget/store/swfstore-min.js',
+		requires:['yahoo-dom-event','y2-swf','y2-cookie']
+	},
+	'y2-element':{
+		fullpath:jsbase+'cubee/tbwidget/store/element-min.js',
+		requires:['yahoo-dom-event']
+	}
+});
+
+

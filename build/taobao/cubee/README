@@ -1,0 +1,10 @@
+/*
+Taobao JavaScript Framework base on YUI3.
+Cubee 
+by jay.li@alibaba-inc.com
+version 0.1beta
+
+cubee.js是最终引用的文件，这个文件应当是yui-min.js和t-cubee.js的合并
+t-mojos.js是模块依赖树
+*/
+
