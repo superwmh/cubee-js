@@ -45,3 +45,53 @@ cubee所包含的文件列表:
 ||T|| 	Taobao的根对象||
 ||Cubee ||	Cubee构造器||
 ||TBloader ||	页面主逻辑的抽象，是Cubee的实例||
+= 程序的入口 = 
+程序的入口是TBloader的回调函数，例如：
+{{{ 
+TBloader.addmojo({
+    't-framework-hack':{
+   fullpath:'http://taobao-wd.ns1.name/jayli/cubee/demo/js/t-framework-hack.js',
+   requires:['node','event','t-framework']
+    }
+});
+TBloader.require('t-framework-hack').onReady(function(){
+    T.DP.framework.init();//框架启动
+    TBproject.start();//应用的入口
+});
+}}}
+这个例子中的t-framework-hack是需要工程师定义的模块，属于页面逻辑，定义模块的方式和yui3的模块定义方式一样。 
+= 页面程序的调用顺序 = 
+如果一个页面比较复杂，包含框架、应用、子应用等等，则需要有多个coding区域来分别写各自的代码，各断代码之间的调用顺序应当是框架-》应用-》子应用，例如在某个页面中，框架的启动代码应当如下： 
+{{{
+TBloader.addmojo({
+    't-framework-hack':{
+   fullpath:'http://taobao-wd.ns1.name/jayli/cubee/demo/js/t-framework-hack.js',
+   requires:['node','event','t-framework']
+    }
+}).require('*').onReady(function(){
+    T.DP.framework.init();//框架启动
+    if(TBproject)TBproject.start();//应用的入口
+});
+}}}
+这里框架调用完成之后应当调用应用的逻辑，应用的逻辑： 
+{{{
+var TBproject = new Cubee().addmojo({
+    't-project':{
+   fullpath:'http://taobao-wd.ns1.name/jayli/cubee/demo/js/t-project.js',
+   requires:['node','event','msg','yahoo-loader','slider','base']
+    },
+    't-project2':{
+   fullpath:'http://taobao-wd.ns1.name/jayli/cubee/demo/js/t-project2.js'
+    }
+}).require('*'/*,'t-project','t-project2'*/).onReady(function(){
+    T.DP.projectname.init();//应用逻辑1
+    T.DP.projectname2.init();//应用逻辑2
+    TBsubproject.start();//子应用的入口
+});
+}}}
+其中，应用的代码和框架的代码在页面中的位置先后和执行顺序无关。 同样，子应用的代码和应用的代码类似，并以此类推。 
+{{{
+var TBproject = new Cubee().addmojo({some modules}).require('*').onReady(function(){
+    T.DP.subproject.init();//子应用逻辑
+});
+}}}
