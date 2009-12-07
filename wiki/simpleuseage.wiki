@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#如何使用cubee，第一步.
 
 = 如何使用cubee =
 引入种子并配置
