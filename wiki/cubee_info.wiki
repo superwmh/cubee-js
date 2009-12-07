@@ -1,14 +1,13 @@
 #summary One-sentence summary of this page.
 
-= Introduction =
-
-了解cubee.
-
-
-= Details =
-
+= 了解cubee =
 cubee是为了解决团队开发的诸多困难而基于yui3编写的简单框架，这些问题大致包括 
   * 项目维护中的代码污染
   * 多人并行开发同一个功能时减少冲突发生
   * 程序的可读性
   * 对yui3的性能上的hack 
+= cubee包含的内容 =
+  * 产品命名空间的命名规则
+  * 产品js文件的命名规则
+  * 开发基础组件(base)的规则
+  * 开发应用组件(tbwidget)的规则 
