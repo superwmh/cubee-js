@@ -21,11 +21,9 @@
 	};
 </script>
 }}}
-
-
-= Details =
-
-Add your content here.  Format your content with:
-  * Text in *bold* or _italic_
-  * Headings, paragraphs, and lists
-  * Automatic links to other wiki pages
+= 全局变量 =
+||*全局变量*||*描述*||
+||YUI||YUI静态对象||
+||T|| 	Taobao的根对象||
+||Cubee ||	Cubee构造器||
+||TBloader ||	页面主逻辑的抽象，是Cubee的实例||
