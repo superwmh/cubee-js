@@ -45,6 +45,7 @@ cubee所包含的文件列表:
 ||T|| 	Taobao的根对象||
 ||Cubee ||	Cubee构造器||
 ||TBloader ||	页面主逻辑的抽象，是Cubee的实例||
+
 = 程序的入口 = 
 程序的入口是TBloader的回调函数，例如：
 {{{ 
