@@ -1,0 +1,40 @@
+Taobao JavaScript Framework base on YUI3.
+Cubee 
+by lijing00333@163.com
+version 0.2beta
+
+cubee.js 是最终引用的文件，这个文件应当是yui-min.js和t-cubee.js的合并
+t-mojos.js是模块依赖树,也包含在cubee.js中
+
+========================
+新增了一些widget：box，tipInput等
+
+========================
+配置：
+
+<script charset="gb18030" type="text/javascript" src="http://a.tbcdn.cn/app/dp/lite/js/cubee/base/cubee.js">
+	var jsbase = 'http://a.tbcdn.cn/app/dp/lite/js/';
+	var cubeeInfo = {
+		fullpath:jsbase+'cubee/cubee-info.js',
+		tbmojo:false,
+		requires:[]
+	};
+</script>
+=======================
+使用：
+
+<script>
+TBloader.addmojo({
+	'tipInput':{
+		fullpath:'xxx.js'
+	}
+}).require('tipInput').onReady(function(Y){
+	var t = new T.tbwidget.tipInput("J_search");
+});
+</script>
+
+========================
+
+参照：
+
+http://xiaoshuo.taobao.com
